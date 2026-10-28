@@ -2,6 +2,14 @@
 
 An educational Bootstrap administration-interface prototype for blog content and user management.
 
+## Captured preview
+
+<picture><source media="(prefers-reduced-motion: reduce)" srcset="docs/screenshots/portfolio-poster.png" /><source type="image/webp" srcset="docs/screenshots/portfolio.webp" /><img src="docs/screenshots/portfolio.gif" width="100%" alt="Blogen — actual captured UI states" /></picture>
+
+Static dashboard and category modal. Wide tables use the existing scrollable region on mobile. No authentication, post creation or persistence backend.
+
+[Reproduce this capture and view the static image](docs/PORTFOLIO-PREVIEW.md) · [Mobile capture](docs/screenshots/portfolio-mobile.png)
+
 ## Included UI
 
 - Dashboard, posts, categories and users page layouts.
