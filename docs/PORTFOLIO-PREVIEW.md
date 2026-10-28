@@ -20,7 +20,7 @@ Open `http://127.0.0.1:8000/index.html`. Stop with Ctrl+C. No npm install, backe
 
 Desktop captures used a 1280×720 browser viewport; mobile captures used 390×844. Scrollbars/backend capture scaling can make exported PNG dimensions slightly smaller. The checked homepages had no horizontal document overflow or broken image at those widths; this is not a comprehensive accessibility or browser-compatibility certification.
 
-Known remaining issue: the existing CKEditor 4.16.2 CDN reports an unsupported/insecure-version warning. The category-modal capture does not use the editor; this group does not upgrade it. The wider security audit should handle that dependency separately.
+The unsupported CKEditor 4 dependency was replaced by a local Tiptap bundle. See [the dependency policy](FRONTEND-DEPENDENCIES.md) for versions, licenses and editor build checks.
 
 ## Evidence boundary
 

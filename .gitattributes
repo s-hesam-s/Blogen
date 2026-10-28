@@ -1,0 +1,2 @@
+# Generated Markdown serializers contain significant spaces in template literals.
+js/rich-editor.bundle.js linguist-generated=true linguist-vendored=true -whitespace
