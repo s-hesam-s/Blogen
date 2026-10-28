@@ -18,6 +18,7 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <title>Bootstrap Theme</title>
+      <link rel="stylesheet" href="css/rich-editor.css" />
   </head>
 
   <body>
@@ -415,13 +416,12 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 
     <script>
       // Get the current year for the copyright
       $("#year").text(new Date().getFullYear());
 
-      CKEDITOR.replace("editor1");
     </script>
+    <script src="js/rich-editor.bundle.js"></script>
   </body>
 </html>

@@ -45,17 +45,17 @@ python -m http.server 8000 --bind 127.0.0.1
 
 Open `http://127.0.0.1:8000/index.html`. Keep the terminal open while previewing and press Ctrl+C to stop it. No database or application backend is needed.
 
-There is no package manifest or build step in this repository; the checked-in HTML and CSS are the preview inputs.
+The checked-in HTML, CSS and editor bundle can be previewed directly. Node.js/npm are needed only to rebuild the local Tiptap editor; see the dependency policy below.
 
 ## External resources
 
-The pages reference resources from `cdn.ckeditor.com`, `cdn.jsdelivr.net`, `code.jquery.com`, `use.fontawesome.com`. Internet access is needed for the referenced CDN scripts, fonts or remote images; the repository is not a fully offline asset bundle. Third-party resource availability can affect the preview.
+The pages reference resources from `cdn.jsdelivr.net`, `code.jquery.com`, `use.fontawesome.com`. Internet access is needed for the referenced CDN scripts, fonts or remote images; the repository is not a fully offline asset bundle. Third-party resource availability can affect the preview.
 
 ## Verification and limitations
 
 Browse dashboard and editor pages, test the layout at narrow widths and inspect form/modal controls. Login, save and account screens are static UI samples; they do not authenticate users or persist data.
 
-No automated behavior-test suite is included. Preview instructions are not a claim that every third-party widget is compatible with current CDN responses. Application services, persistent storage and deployment are outside this UI exercise.
+No automated browser-interaction suite is included; dependency-policy regressions run separately. Preview instructions are not a claim that every third-party widget is compatible with current CDN responses. Application services, persistent storage and deployment are outside this UI exercise.
 
 ## Project scope and reuse
 
@@ -63,6 +63,16 @@ This is an educational repository. The implementation notes describe the code in
 
 ## Continuous integration
 
-GitHub Actions checks root HTML documents for a doctype, document shell, nonempty title and duplicate IDs. It also verifies local href/src/poster targets, filename casing and HTML/SVG fragments using `python3 scripts/check_site.py`. Remote URLs and placeholder `#` links are not fetched; this is not a full HTML5 conformance, accessibility or browser interaction test. No npm installation, backend or deployment is involved.
+GitHub Actions checks root HTML documents for a doctype, document shell, nonempty title and duplicate IDs. It also verifies local href/src/poster targets, filename casing and HTML/SVG fragments using `python3 scripts/check_site.py`. Remote URLs and placeholder `#` links are not fetched; this is not a full HTML5 conformance, accessibility or browser interaction test. The editor build also restores the locked npm dependencies, audits them and verifies the checked-in bundle. No backend or deployment is involved.
 
 The [CI workflow](.github/workflows/ci.yml) runs for pull requests and pushes to `master`, and can be started manually. It uses read-only repository permissions and does not deploy the project.
+
+## Runtime dependency checks
+
+[Dependency inventory, local asset policy and verification commands](docs/FRONTEND-DEPENDENCIES.md) describe the exact runtime resources and CI guard.
+
+## Local rich-text editor
+
+<picture><source media="(max-width: 600px)" srcset="docs/screenshots/rich-editor-mobile.png" /><img src="docs/screenshots/rich-editor-desktop.png" width="100%" alt="Actual local Tiptap editor with formatting, lists and explicit links" /></picture>
+
+The unsupported CKEditor 4 runtime was replaced by a locally built Tiptap editor in the post, detail and profile forms. The settings page no longer initializes a nonexistent editor. Formatting, rich-text paste and allowed/blocked links were checked in the browser. These remain static sample forms without saving or submission services.
