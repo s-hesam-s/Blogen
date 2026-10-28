@@ -55,7 +55,7 @@ The pages reference resources from `cdn.jsdelivr.net`, `code.jquery.com`, `use.f
 
 Browse dashboard and editor pages, test the layout at narrow widths and inspect form/modal controls. Login, save and account screens are static UI samples; they do not authenticate users or persist data.
 
-No automated browser-interaction suite is included; dependency-policy regressions run separately. Preview instructions are not a claim that every third-party widget is compatible with current CDN responses. Application services, persistent storage and deployment are outside this UI exercise.
+An isolated Chromium regression suite checks selected real interactions at desktop and mobile widths; dependency-policy regressions run separately. Preview instructions are not a claim that every third-party widget is compatible with current CDN responses. Application services, persistent storage and deployment are outside this UI exercise.
 
 ## Project scope and reuse
 
@@ -76,3 +76,9 @@ The [CI workflow](.github/workflows/ci.yml) runs for pull requests and pushes to
 <picture><source media="(max-width: 600px)" srcset="docs/screenshots/rich-editor-mobile.png" /><img src="docs/screenshots/rich-editor-desktop.png" width="100%" alt="Actual local Tiptap editor with formatting, lists and explicit links" /></picture>
 
 The unsupported CKEditor 4 runtime was replaced by a locally built Tiptap editor in the post, detail and profile forms. The settings page no longer initializes a nonexistent editor. Formatting, rich-text paste and allowed/blocked links were checked in the browser. These remain static sample forms without saving or submission services.
+
+## Maintenance checks
+
+The existing CI also runs weekly on Monday and checks tracked Markdown file destinations with `scripts/check_doc_links.py`. Its negative tests cover moved documents, missing picture variants, paths outside the repository and untracked local drafts. External URLs and heading fragments are intentionally outside this offline file check. Scheduled runs do not deploy or start original application hosts.
+
+Browser regressions: [test scope and local commands](docs/BROWSER-TESTS.md). Exact reviewed runtime versions are also checked against current GitHub advisories; CDN coverage and API failure cases are tested separately.
