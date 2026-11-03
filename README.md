@@ -82,3 +82,5 @@ The unsupported CKEditor 4 runtime was replaced by a locally built Tiptap editor
 The existing CI also runs weekly on Monday and checks tracked Markdown file destinations with `scripts/check_doc_links.py`. Its negative tests cover moved documents, missing picture variants, paths outside the repository and untracked local drafts. External URLs and heading fragments are intentionally outside this offline file check. Scheduled runs do not deploy or start original application hosts.
 
 Browser regressions: [test scope and local commands](docs/BROWSER-TESTS.md). Exact reviewed runtime versions are also checked against current GitHub advisories; CDN coverage and API failure cases are tested separately.
+
+Local anchor validation and weekly public URL monitoring are documented in [link health](docs/LINK-HEALTH.md).
